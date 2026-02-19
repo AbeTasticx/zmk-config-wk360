@@ -15,28 +15,55 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+
+        h_dt: double_tap_h {
+            compatible = "zmk,behavior-hold-tap";
+            label = "DOUBLE_TAP_H";
+            #binding-cells = <0>;
+
+            tapping-term-ms = <200>;   // normal tap/hold timing
+            quick-tap-ms = <180>;      // rapid taps counted here
+
+            flavor = "balanced";
+
+            bindings = <&kp LG(LC(LEFT))>, <&kp H>;
+        };
+
+        l_dt: double_tap_l {
+            compatible = "zmk,behavior-hold-tap";
+            label = "DOUBLE_TAP_H";
+            #binding-cells = <0>;
+
+            tapping-term-ms = <200>;   // normal tap/hold timing
+            quick-tap-ms = <180>;      // rapid taps counted here
+
+            flavor = "balanced";
+
+            bindings = <&kp LG(LC(RIGHT))>, <&kp L>;
+        };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            display-name = "Base";
-            bindings = <
-&kp ESC    &kp N1     &kp N2    &kp N3        &kp N4  &kp N5                                                                                             &kp N6  &kp N7  &kp N8         &kp N9         &kp N0     &kp MINUS
-&kp TAB    &kp Q      &kp W     &kp E         &kp R   &kp T                                                                                              &kp Y   &kp U   &kp I          &kp O          &kp P      &kp BSLH
-&kp CAPS   &kp A      &kp S     &kp D         &kp F   &kp G                  &kp LEFT_ARROW  &kp RIGHT          &kp UP_ARROW  &kp DOWN_ARROW             &kp H   &kp J   &kp K          &kp L          &kp SEMI   &kp SQT
-&kp LSHFT  &kp Z      &kp X     &kp C         &kp V   &kp B                                  &kp PG_UP          &kp HOME                                 &kp N   &kp M   &kp COMMA      &kp DOT        &kp FSLH   &kp RSHFT
-           &kp LCTRL  &kp LWIN  &kp LEFT_ALT  &mo 1           &kp BACKSPACE  &kp DELETE      &kp PAGE_DOWN      &kp END       &kp ENTER       &kp SPACE          &mo 2   &kp RIGHT_ALT  &kp RIGHT_WIN  &kp RCTRL
-            >;
-        };
+    display-name = "Base";
+    bindings = <
+        &kp GRAVE      &kp N1     &kp N2    &kp N3       &kp N4    &kp N5                                                                       &kp N6  &kp N7  &kp N8  &kp N9      &kp N0     &kp MINUS
+        &kp TAB        &kp Q      &kp W     &kp E        &kp R     &kp T                                                                        &kp Y   &kp U   &kp I   &kp O       &kp P      &kp BSLH
+        &kp ESC        &kp A      &kp S     &kp D        &kp F     &kp G              &kp LEFT &kp RIGHT          &kp UP  &kp DOWN             &h_dt   &kp J   &kp K   &kp l_dt       &kp SEMI  &kp SQT
+        &kp LSHFT      &kp Z      &kp X     &kp C        &kp V     &kp B                       &kp HOME        &kp PG_UP                           &kp N   &kp M   &kp COMMA   &kp DOT   &kp FSLH  &kp EQUAL
+                       &kp LCTRL    &kp LGUI  &mo 1    &kp LALT            &kp BSPC  &kp DEL  &kp END         &kp PG_DN  &kp RET  &kp SPC             &kp PSCRN  &mo 2  &kp LBKT  &kp RBKT
+    >;
+};
+
 
         layer_1 {
             bindings = <
-&kp F1   &kp F2  &kp F3   &kp F4   &kp F5   &kp F7                                                       &kp F7   &kp F8   &kp F9   &kp F10   &kp F11   &kp F12 
+&kp F1   &kp F2  &kp F3   &kp F4   &kp F5   &kp F7                                                       &kp F7   &kp F8   &kp F9   &kp F10   &kp F11   &kp F12
 &trans  &trans  &trans  &trans  &trans  &trans                                                      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans      &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&bootloader  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
         &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans
             >;
         };
@@ -46,7 +73,7 @@
 &trans  &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3     &bt BT_SEL 4                                                      &trans           &trans  &trans  &trans  &trans  &trans
 &trans  &trans          &trans        &trans        &rgb_ug RGB_TOG  &trans                                                            &trans           &trans  &trans  &trans  &trans  &trans
 &trans  &bt BT_CLR_ALL  &trans        &trans        &trans           &trans                &trans  &trans      &trans  &trans          &trans           &trans  &trans  &trans  &trans  &trans
-&trans  &trans          &trans        &bt BT_CLR    &trans           &trans                        &trans      &trans                  &rgb_ug RGB_EFF  &trans  &trans  &trans  &trans  &trans
+&trans  &trans          &trans        &bt BT_CLR    &trans           &trans                        &trans      &trans                  &rgb_ug RGB_EFF  &trans  &trans  &trans  &trans  &bootloader
         &trans          &trans        &trans        &trans                         &trans  &trans  &trans      &trans  &trans  &trans                   &trans  &trans  &trans  &trans
             >;
         };
