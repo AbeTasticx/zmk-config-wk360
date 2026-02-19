@@ -16,30 +16,10 @@
             bindings = <&kp>, <&kp>;
         };
 
-        h_dt: double_tap_h {
-            compatible = "zmk,behavior-hold-tap";
-            label = "DOUBLE_TAP_H";
-            #binding-cells = <0>;
-
-            tapping-term-ms = <200>;   // normal tap/hold timing
-            quick-tap-ms = <180>;      // rapid taps counted here
-
-            flavor = "balanced";
-
-            bindings = <&kp LG(LC(LEFT))>, <&kp H>;
-        };
-
-        l_dt: double_tap_l {
-            compatible = "zmk,behavior-hold-tap";
-            label = "DOUBLE_TAP_H";
-            #binding-cells = <0>;
-
-            tapping-term-ms = <200>;   // normal tap/hold timing
-            quick-tap-ms = <180>;      // rapid taps counted here
-
-            flavor = "balanced";
-
-            bindings = <&kp LG(LC(RIGHT))>, <&kp L>;
+        dt: double_tap_h {
+            tapping-term-ms = <200>;
+            quick_tap_ms = <125>;
+            flavor = "tap-preferred";
         };
     };
 
@@ -51,7 +31,7 @@
     bindings = <
         &kp GRAVE      &kp N1     &kp N2    &kp N3       &kp N4    &kp N5                                                                       &kp N6  &kp N7  &kp N8  &kp N9      &kp N0     &kp MINUS
         &kp TAB        &kp Q      &kp W     &kp E        &kp R     &kp T                                                                        &kp Y   &kp U   &kp I   &kp O       &kp P      &kp BSLH
-        &kp ESC        &kp A      &kp S     &kp D        &kp F     &kp G              &kp LEFT &kp RIGHT          &kp UP  &kp DOWN             &h_dt   &kp J   &kp K   &l_dt       &kp SEMI  &kp SQT
+        &kp ESC        &kp A      &kp S     &kp D        &kp F     &kp G              &kp LEFT &kp RIGHT          &kp UP  &kp DOWN             &dt LG(LC(LEFT)) H  &kp J   &kp K   &dt LG(LC(RIGHT)) L     &kp SEMI  &kp SQT
         &kp LSHFT      &kp Z      &kp X     &kp C        &kp V     &kp B                       &kp HOME        &kp PG_UP                           &kp N   &kp M   &kp COMMA   &kp DOT   &kp FSLH  &kp EQUAL
                        &kp LCTRL    &kp LGUI  &mo 1    &kp LALT            &kp BSPC  &kp DEL  &kp END         &kp PG_DN  &kp RET  &kp SPC             &kp PSCRN  &mo 2  &kp LBKT  &kp RBKT
     >;
