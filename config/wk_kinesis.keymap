@@ -16,10 +16,22 @@
             bindings = <&kp>, <&kp>;
         };
 
-        dt: double_tap_h {
+        dt_h: double_tap_h {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_ESC_CAPS";
+            #binding-cells = <0>;
             tapping-term-ms = <200>;
-            quick_tap_ms = <125>;
-            flavor = "tap-preferred";
+
+            bindings = <&kp LG(LC(LEFT))>, <&kp H>;
+        };
+
+        dt_l: double_tap_l {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_ESC_CAPS";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+
+            bindings = <&kp LG(LC(RIGHT))>, <&kp L>;
         };
     };
 
@@ -31,7 +43,7 @@
     bindings = <
         &kp GRAVE      &kp N1     &kp N2    &kp N3       &kp N4    &kp N5                                                                       &kp N6  &kp N7  &kp N8  &kp N9      &kp N0     &kp MINUS
         &kp TAB        &kp Q      &kp W     &kp E        &kp R     &kp T                                                                        &kp Y   &kp U   &kp I   &kp O       &kp P      &kp BSLH
-        &kp ESC        &kp A      &kp S     &kp D        &kp F     &kp G              &kp LEFT &kp RIGHT          &kp UP  &kp DOWN             &dt LG(LC(LEFT)) H  &kp J   &kp K   &dt LG(LC(RIGHT)) L     &kp SEMI  &kp SQT
+        &kp ESC        &kp A      &kp S     &kp D        &kp F     &kp G              &kp LEFT &kp RIGHT          &kp UP  &kp DOWN             &dt_h  &kp J   &kp K   &dt_l     &kp SEMI  &kp SQT
         &kp LSHFT      &kp Z      &kp X     &kp C        &kp V     &kp B                       &kp HOME        &kp PG_UP                           &kp N   &kp M   &kp COMMA   &kp DOT   &kp FSLH  &kp EQUAL
                        &kp LCTRL    &kp LGUI  &mo 1    &kp LALT            &kp BSPC  &kp DEL  &kp END         &kp PG_DN  &kp RET  &kp SPC             &kp PSCRN  &mo 2  &kp LBKT  &kp RBKT
     >;
