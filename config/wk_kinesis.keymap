@@ -20,18 +20,18 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_ESC_CAPS";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
 
-            bindings = <&kp LG(LC(LEFT))>, <&kp H>;
+            bindings = <&kp LC(LALT) LEFT>, <&kp H>;
         };
 
         dt_l: double_tap_l {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_ESC_CAPS";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
 
-            bindings = <&kp LG(LC(RIGHT))>, <&kp L>;
+            bindings = <&kp LC(LALT) RIGHT>, <&kp L>;
         };
     };
 
