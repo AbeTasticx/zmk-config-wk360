@@ -22,7 +22,7 @@
             #binding-cells = <0>;
             tapping-term-ms = <300>;
 
-            bindings = <&kp LC(LALT) LEFT>, <&kp H>;
+            bindings = <&kp LC(LG(LEFT))>, <&kp H>;
         };
 
         dt_l: double_tap_l {
@@ -31,7 +31,7 @@
             #binding-cells = <0>;
             tapping-term-ms = <300>;
 
-            bindings = <&kp LC(LALT) RIGHT>, <&kp L>;
+            bindings = <&kp LC(LG(RIGHT))>, <&kp L>;
         };
     };
 
