@@ -1,0 +1,14 @@
+file_format: "1"
+id: wk_kinesis
+name: WK 360 Wireless
+type: shield
+url: https://github.com/AbeTasticx/zmk-config-wk360
+requires:
+  - pro_micro
+features:
+  - keys
+  - underglow
+  - studio
+siblings:
+  - wk_kinesis_left
+  - wk_kinesis_right

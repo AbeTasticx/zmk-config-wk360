@@ -4,7 +4,7 @@
 / {
     chosen {
         zmk,kscan = &kscan0;
-        zmk,physical-layouts = &wk_kinesis_layout;
+        zmk,physical-layout = &wk_kinesis_layout;
     };
 
     default_transform: keymap_transform_0 {
@@ -22,13 +22,8 @@
 
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
+        wakeup-source;
         diode-direction = "col2row";
     };
 
-};
-
-
-zephyr_udc0:&usbd{
-    compatible="nordic,nrf-usbd";
-    status="okay";
 };
